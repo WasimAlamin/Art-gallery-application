@@ -1,0 +1,64 @@
+﻿@model LaborationRep.Models.Artwork
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Lägg till ett nytt konstverk</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label  class="control-label">Konstverk</label>
+                <input asp-for="ArtworkName" class="form-control" />
+                <span asp-validation-for="ArtworkName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">År</label>
+                <input asp-for="Year" class="form-control" />
+                <span asp-validation-for="Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Genre</label>
+                <input asp-for="Genre" class="form-control" />
+                <span asp-validation-for="Genre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Teknik</label>
+                <input asp-for="Technique" class="form-control" />
+                <span asp-validation-for="Technique" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Rum</label>
+                <input asp-for="Room" class="form-control" />
+                <span asp-validation-for="Room" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Plats</label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Utställning</label>
+                <input asp-for="Exhibition" class="form-control" />
+                <span asp-validation-for="Exhibition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Konstnär</label>
+                <select asp-for="ArtistId" class ="form-control" asp-items="ViewBag.ArtistId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Skapa" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

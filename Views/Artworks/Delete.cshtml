@@ -1,0 +1,68 @@
+﻿@model LaborationRep.Models.Artwork
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Radera</h1>
+
+<h3>Är du säker på att du vill radera konstverket?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Konstverk
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ArtworkName)
+        </dd>
+        <dt class = "col-sm-2">
+            År
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+        <dt class = "col-sm-2">
+            Genre
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Genre)
+        </dd>
+        <dt class = "col-sm-2">
+            Teknik
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Technique)
+        </dd>
+        <dt class = "col-sm-2">
+            Rum
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Room)
+        </dd>
+        <dt class = "col-sm-2">
+           Plats
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+        <dt class = "col-sm-2">
+            Utställning
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Exhibition)
+        </dd>
+        <dt class = "col-sm-2">
+            Konstnär
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Artist.FirstName) @Html.DisplayFor(model => model.Artist.LastName)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Radera" class="btn btn-danger" /> |
+        @Html.ActionLink("Tillbaka till konstverklista", "Index", new { id = Model.ArtistId })
+    </form>
+</div>

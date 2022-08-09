@@ -1,0 +1,45 @@
+﻿@model IEnumerable<LaborationRep.Models.Exhibition>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Utställningar</h1>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                Utställning
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Tidsperiod
+            </th>
+            <th>
+                Om
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Period)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.About)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

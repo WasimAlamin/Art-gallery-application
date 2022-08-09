@@ -1,0 +1,74 @@
+﻿@model LaborationRep.Models.Artist
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Utställda konstverk av </h1>
+<h3>@Html.DisplayFor(m => m.FirstName) @Html.DisplayFor(m => m.LastName)</h3>
+
+<p>
+    <a asp-action="Create">Lägg till konstverk</a>
+
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                Konstverk
+            </th>
+            <th>
+                År
+            </th>
+            <th>
+                Genre
+            </th>
+            <th>
+                Teknik
+            </th>
+            <th>
+                Rum
+            </th>
+            <th>
+                Plats
+            </th>
+            <th>
+                Utställning
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Art)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArtworkName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Technique)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Room)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Exhibition)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Uppdatera</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Detaljer</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Radera</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

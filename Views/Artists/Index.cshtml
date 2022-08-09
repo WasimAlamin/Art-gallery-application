@@ -1,0 +1,43 @@
+﻿@model IEnumerable<LaborationRep.Models.Artist>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Utställda konstnärer</h1>
+
+<p>
+    <a asp-action="Create">Lägg till konstnär</a>
+</p>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                    Förnamn
+                </th>
+                <th>
+                    Efternamn
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Uppdatera</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Detaljer</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Radera</a> |
+                        <a asp-controller="Artworks" asp-action="Index" asp-route-id="@item.Id">Konstverkslista</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
